@@ -86,7 +86,7 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL='postgresql://neondb_owner:npg_l9
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
+        'NAME': tmpPostgres.path.replace('/', '') if tmpPostgres.path else '',
         'USER': tmpPostgres.username,
         'PASSWORD': tmpPostgres.password,
         'HOST': tmpPostgres.hostname,
